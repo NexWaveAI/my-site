@@ -1,5 +1,19 @@
 # Git Commands
-git pull origin <your pranch name>
+clone your repo in local
+change branch master to dev
+<img width="427" alt="image" src="https://github.com/user-attachments/assets/d2110c37-7bb6-48ee-bdd0-de1c7c04a4f9">
+
+
+git pull origin dev
+
+## create your developer branch in local from dev branch and push 
+
+##git push commands for push your changes from your local system to github
+ 
+ git add .                      
+ git commit -m "added html text"
+ git push origin praneeth 
+
 
 # Getting Started with Create React App
 
