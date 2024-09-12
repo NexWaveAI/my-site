@@ -1,14 +1,14 @@
 
-import './components/styles/App';
+import Body from './components/ui/Body';
+import './App.css'
+
 
 function App() {
   return (
    
-    <div className="App">
-       <header />
-      <header className="App-header">
-       <h1> This is my site</h1>
-      </header>
+    <div>
+       
+      <Body />
     </div>
   );
 }
