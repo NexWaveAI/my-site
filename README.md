@@ -1,11 +1,11 @@
-### Git Commands
+Git Commands
 ### git pull origin dev or git fetch
 ### clone your repo in local
 
-### change branch dev to your branch 
+change branch dev to your branch 
 ### git checkout praneeth                   #Switch to the dev branch
 
-###git push commands for push your changes from your local system to github
+git push commands for push your changes from your local system to github
 
 ### git add .                                      # Stage changes (if any)
 ### git commit -m "Your commit message"           # Commit changes (if any)
