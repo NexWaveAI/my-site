@@ -1,18 +1,15 @@
 # Git Commands
+git pull origin dev or git fetch
 clone your repo in local
-change branch master to dev
-<img width="427" alt="image" src="https://github.com/user-attachments/assets/d2110c37-7bb6-48ee-bdd0-de1c7c04a4f9">
 
-
-git pull origin dev
-
-## create your developer branch in local from dev branch and push 
+change branch dev to your branch 
+git checkout praneeth                         # Switch to the dev branch
 
 ##git push commands for push your changes from your local system to github
- 
- git add .                      
- git commit -m "added html text"
- git push origin praneeth 
+
+git add .                                      # Stage changes (if any)
+git commit -m "Your commit message"           # Commit changes (if any)
+git push origin praneeth                      # Push dev branch to remote
 
 
 # Getting Started with Create React App
