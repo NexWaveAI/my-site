@@ -3,7 +3,9 @@ import './components/styles/App';
 
 function App() {
   return (
+   
     <div className="App">
+       <header />
       <header className="App-header">
        <h1> This is my site</h1>
       </header>
