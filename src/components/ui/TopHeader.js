@@ -22,6 +22,7 @@ function TopNav() {
                     <a href="#about">About</a>
                 </div>
                 <div className="logo">
+                    <h3> Country Delight kitchen</h3>
                     <img src="/path-to-your-logo.png" alt="Logo" />
                 </div>
                 <div className="right-tab">
