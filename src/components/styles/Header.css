@@ -1,0 +1,47 @@
+/* Styles for the navigation bar */
+.topnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+    height: 60px;
+}
+
+.left-tab,
+.right-tab {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.left-tab a,
+.right-tab a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.logo {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Modal Background */
+.account-form-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,59 @@
+/* Basic reset for body margin and padding */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Styles for the navigation bar */
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+  color: white;
+  height: 60px;
+}
+
+.left.tabs,
+.right-tabs {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Gap between tabs items */
+}
+
+.left-tabs a,
+.right-tabs a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.left-tabs a:hover,
+.right-tabs a:hover {
+  text-decoration: underline;
+}
+
+.logo img {
+  height: 40px; /* Adjust this size as per your logo */
+}
+
+.right-tabs a {
+  cursor: pointer;
+}
+
+/* Ensure the logo is in the middle */
+.logo {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #f0a500; /* Hover color change */
+}
