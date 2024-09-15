@@ -17,11 +17,12 @@ function TopNav() {
         <>
             <nav className="topnav">
                 <div className="left-tab">
-                    <a href="#menu">Menu</a>
+                    <a href="/menu">Menu</a>
                     <a href="#catering">Catering</a>
                     <a href="#about">About</a>
                 </div>
                 <div className="logo">
+                    <h3> Country Delight kitchen</h3>
                     <img src="/path-to-your-logo.png" alt="Logo" />
                 </div>
                 <div className="right-tab">

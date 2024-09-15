@@ -10,7 +10,7 @@
 }
 
 .locationHoures-containetr{
-    background-color: white
+    background-color: white;
 }
 
 .topFooter-container {
@@ -20,14 +20,7 @@
     width: 100%;
     max-width: 1200px;
     padding: 20px;
-    /* box-sizing: border-box; */
 }
-
-/* .footer-logo img {
-    height: 100px;
-    width: auto;
-    margin-bottom: 20px;
-} */
 
 .footer-location,
 .footer-hours {
@@ -36,15 +29,20 @@
 
 .footer-location h4,
 .footer-hours h4 {
-    margin-bottom: 10px;
-    font-size: 20px;
-    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 1000;
 }
 
 .footer-location p,
+.footer-hours p  {
+    margin: 10px 0;
+    font-size: 20px;
+    margin-bottom: 20px; /* Adjust this value for more spacing */
+}
+
 .footer-hours p {
-    margin: 5px 0;
-    font-size: 14px;
+    line-height: 2; /* Adjust this value for more or less space */
 }
 
 .footer-location a,
@@ -59,7 +57,7 @@
 
 .get-directions {
     display: inline-block;
-    margin-top: 10px;
+    margin-top: 20px; /* Add more space between the hours section and the button */
     padding: 10px 15px;
     background-color: #f44336;
     color: white;
