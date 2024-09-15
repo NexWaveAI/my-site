@@ -1,59 +1,185 @@
-/* Basic reset for body margin and padding */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-
-/* Styles for the navigation bar */
-.topnav {
+/* Styles for larger screens */
+.tabs-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  background-color: #333;
-  padding: 10px 20px;
-  color: white;
-  height: 60px;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
-.left.tabs,
-.right-tabs {
+.tabs-right {
   display: flex;
-  align-items: center;
-  gap: 20px; /* Gap between tabs items */
+  flex-direction: row;
+  align-items: flex-end;
+  margin-right: 20px;
 }
 
-.left-tabs a,
-.right-tabs a {
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
+.tabs-right button {
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 150px;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.left-tabs a:hover,
-.right-tabs a:hover {
-  text-decoration: underline;
+.tabs-right button.active {
+  background-color: #ccc;
+  font-weight: bold;
 }
 
-.logo img {
-  height: 40px; /* Adjust this size as per your logo */
-}
-
-.right-tabs a {
+.search-button {
+  margin-top: 20px;
   cursor: pointer;
 }
 
-/* Ensure the logo is in the middle */
-.logo {
-  flex-grow: 1;
+.search-box {
+  margin-top: 10px;
+}
+
+.tab-content {
+  width: 100%;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Change to repeat(4, 1fr) for 4 items per row */
+  gap: 20px;
+}
+
+.content-item {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.content-item:hover {
+  transform: scale(1.05);
+}
+
+.content-image {
+  width: 50%;
+  height: auto;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.no-results {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow-y: auto; /* Allow modal background to be scrollable if necessary */
 }
 
-a {
-  transition: color 0.3s ease;
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 900px;
+  width: 100%;
+  position: relative;
+  max-height: 80vh; /* Limit modal height to 80% of the viewport */
+  overflow-y: auto; /* Enable vertical scrolling inside the modal */
 }
 
-a:hover {
-  color: #f0a500; /* Hover color change */
+.close-button {
+  display: block; /* Ensures it's treated as a block element */
+  margin: 0 auto; /* Centers the button horizontally */
+  cursor: pointer;
+  font-size: 20px;
+  text-align: center; /* Centers the text inside the button */
+  padding: 10px;
+}
+
+/* Responsive Styles for mobile */
+@media (max-width: 768px) {
+  .tabs-container {
+      flex-direction: column; /* Stack tabs and content vertically */
+      align-items: center;
+  }
+
+  .tabs-right {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-right: 0;
+  }
+
+  .tabs-right button {
+      width: 120px; /* Smaller buttons for mobile */
+      margin: 5px;
+      padding: 8px;
+  }
+
+  .content-grid {
+      grid-template-columns: repeat(2, 1fr); /* Show 2 items per row on smaller screens */
+      gap: 15px;
+  }
+
+  .content-item {
+      padding: 10px;
+  }
+
+  .content-image {
+      max-height: 120px;
+  }
+}
+
+/* Extra small screens (mobile) */
+@media (max-width: 480px) {
+  .tabs-right button {
+      width: 100px; /* Even smaller buttons for mobile */
+      margin: 5px;
+  }
+
+  .content-grid {
+      grid-template-columns: repeat(1, 1fr); /* Show 1 item per row on very small screens */
+  }
+
+  .content-item {
+      padding: 8px;
+  }
+
+  .content-image {
+      max-height: 100px;
+  }
+
+  .modal-content {
+      max-width: 90%; /* Ensure modal fits within smaller screens */
+  }
+}
+
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .modal-content {
+      padding: 15px; /* Reduce padding for smaller screens */
+      max-width: 90%; /* Ensure modal doesn't take up too much space */
+  }
+
+  .search-box input {
+      padding: 8px; /* Adjust input padding for smaller screens */
+      font-size: 14px; /* Adjust font size for readability */
+  }
+
+  .close-button {
+      font-size: 18px; /* Slightly reduce the close button size */
+  }
 }
