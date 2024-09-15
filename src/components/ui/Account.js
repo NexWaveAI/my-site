@@ -30,6 +30,7 @@ function Account({ onClose }) {
                     </label>
                     <button type="submit">Continue</button>
                 </form>
+                
                 <button className="close-button" onClick={onClose}>Close</button>
             </div>
         </div>

@@ -7,6 +7,7 @@
     padding: 10px 20px;
     color: white;
     height: 60px;
+    padding: 100px 0;
 }
 
 .left-tab,
@@ -44,4 +45,60 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+.image-gallery {
+    overflow: hidden; /* Hide the overflow to prevent a scrollbar */
+    white-space: nowrap;
+    width: 100%; /* Ensure the gallery takes full width */
+    position: relative;
+}
+
+.image-track {
+    display: flex;
+    width: max-content; /* Allows the container to expand beyond the viewport width */
+    animation: scroll 15s linear infinite; /* Apply smooth scrolling animation */
+}
+
+.image-track img {
+    width: 200px; /* Default image width for desktop */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Add some spacing between images */
+    object-fit: cover; /* Cover the space, maintaining aspect ratio */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+/* Define the keyframe animation */
+@keyframes scroll {
+    0% {
+        transform: translateX(0); /* Start from the beginning */
+    }
+    100% {
+        transform: translateX(-50%); /* Move left to half the track */
+    }
+}
+
+/* Adjustments for mobile screens */
+@media (max-width: 768px) {
+    .image-track img {
+        width: 120px; /* Smaller image size for mobile */
+        margin-right: 5px; /* Reduce spacing between images */
+    }
+
+    .image-track {
+        animation: scroll 10s linear infinite; /* Speed up the scrolling for mobile */
+    }
+}
+
+/* Adjustments for larger desktop screens */
+@media (min-width: 1200px) {
+    .image-track img {
+        width: 250px; /* Larger image size for larger screens */
+        margin-right: 15px; /* Increase spacing for larger screens */
+    }
+
+    .image-track {
+        animation: scroll 20s linear infinite; /* Slower scroll for larger screens */
+    }
 }
