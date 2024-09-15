@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
 import Account from './Account'; // Import the Account component
+import img from '../images/Millet.jpg'; // Example image
 
 function TopNav() {
     const [showAccountForm, setShowAccountForm] = useState(false);
@@ -22,7 +22,7 @@ function TopNav() {
                     <a href="#about">About</a>
                 </div>
                 <div className="logo">
-                    <h3> Country Delight kitchen</h3>
+                    <h3>Country Delight Kitchen</h3>
                     <img src="/path-to-your-logo.png" alt="Logo" />
                 </div>
                 <div className="right-tab">
@@ -34,6 +34,21 @@ function TopNav() {
 
             {/* Render Account form conditionally */}
             {showAccountForm && <Account onClose={handleCloseAccountForm} />}
+
+            {/* Image Gallery Section */}
+            <div className="image-gallery">
+                <div className="image-track">
+                    <img src={img} alt="Image 1" />
+                    <img src={img} alt="Image 2" />
+                    <img src={img} alt="Image 3" />
+                    <img src={img} alt="Image 4" />
+                    {/* Duplicate images for seamless scroll */}
+                    <img src={img} alt="Image 1 Duplicate" />
+                    <img src={img} alt="Image 2 Duplicate" />
+                    <img src={img} alt="Image 3 Duplicate" />
+                    <img src={img} alt="Image 4 Duplicate" />
+                </div>
+            </div>
         </>
     );
 }
