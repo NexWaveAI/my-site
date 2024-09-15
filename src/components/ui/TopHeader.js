@@ -17,7 +17,7 @@ function TopNav() {
         <>
             <nav className="topnav">
                 <div className="left-tab">
-                    <a href="#menu">Menu</a>
+                    <a href="/menu">Menu</a>
                     <a href="#catering">Catering</a>
                     <a href="#about">About</a>
                 </div>

@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
-import MilletImage from '././../images/Millet.jpg';
+import { FaSearch } from 'react-icons/fa'; // Import search icon from react-icons
+import MilletImage from './../images/Millet.jpg';
+import Dosa from './../images/Dosa.png';
+import Chutney from './../images/Chuteney.jpg';
 
 const Tabs = () => {
     const [activeTab, setActiveTab] = useState('batters');
     const [searchVisible, setSearchVisible] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
-    const [modalData, setModalData] = useState(null); // Store data for modal
-    const [isModalOpen, setIsModalOpen] = useState(false); // Control modal visibility
+    const [modalData, setModalData] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleTabClick = (tab) => {
         setActiveTab(tab);
-        setSearchVisible(false); // Hide search box when changing tabs
+        setSearchVisible(false);
     };
 
     const handleSearchClick = () => {
-        setSearchVisible(!searchVisible); // Toggle search box visibility
+        setSearchVisible(!searchVisible);
     };
 
     const handleSearchChange = (e) => {
@@ -22,12 +25,12 @@ const Tabs = () => {
     };
 
     const handleItemClick = (item) => {
-        setModalData(item); // Set the clicked item data for the modal
-        setIsModalOpen(true); // Open the modal
+        setModalData(item);
+        setIsModalOpen(true);
     };
 
     const handleModalClose = () => {
-        setIsModalOpen(false); // Close the modal
+        setIsModalOpen(false);
     };
 
     const content = {
@@ -35,30 +38,36 @@ const Tabs = () => {
             {
                 name: "Millet Dosa Batter",
                 image: MilletImage,
-                description: "Millet dosa batter is a healthier alternative to traditional dosa batter, incorporating millet grains instead of or in addition to rice. Millets are highly nutritious, gluten-free grains that are rich in fiber, vitamins, and minerals. Making dosa batter with millets can add a unique flavor and texture to the dosas while providing additional health benefits. No Preservatives or Salt Added.",
+                description: "Millet dosa batter is a healthier alternative to traditional dosa batter, incorporating millet grains instead of or in addition to rice. Millets are highly nutritious, gluten-free grains that are rich in fiber, vitamins, and minerals. Making dosa batter with millets can add a unique flavor and texture to the dosas while providing additional health benefits.",
                 price: "$7.00",
                 calories: "70 Cal",
                 dietaryPreferences: ["Gluten-Free", "Vegan", "Organic"],
                 optionalIngredients: ["Salt", "Spices"],
                 sizeOptions: ["Small", "Medium", "Large"]
             },
-            // Add other items here
-        ],
-        chutneys: [
             {
-                name: "chutney1",
-                image: MilletImage,
-                description: "Millet dosa batter is a healthier alternative to traditional dosa batter, incorporating millet grains instead of or in addition to rice. Millets are highly nutritious, gluten-free grains that are rich in fiber, vitamins, and minerals. Making dosa batter with millets can add a unique flavor and texture to the dosas while providing additional health benefits. No Preservatives or Salt Added.",
-                price: "$10.00",
+                name: "Dosa Batter",
+                image: Dosa,
+                description: "Traditional dosa batter made with rice and lentils.",
+                price: "$5.00",
                 calories: "70 Cal",
                 dietaryPreferences: ["Gluten-Free", "Vegan", "Organic"],
                 optionalIngredients: ["Salt", "Spices"],
                 sizeOptions: ["Small", "Medium", "Large"]
             },
-            // Add other items here
         ],
-
-        // Other tabs' data (chutneys, curd, etc.) would go here
+        chutneys: [
+            {
+                name: "Chutney 1",
+                image: Chutney,
+                description: "Delicious chutney to accompany any meal...",
+                price: "$10.00",
+                calories: "50 Cal",
+                dietaryPreferences: ["Gluten-Free", "Vegan"],
+                optionalIngredients: ["Spices"],
+                sizeOptions: ["Small", "Large"]
+            },
+        ],
     };
 
     const filteredContent = content[activeTab].filter(item =>
@@ -71,23 +80,31 @@ const Tabs = () => {
 
     return (
         <div className="tabs-container">
-            <div className="tabs">
-                <button onClick={() => handleTabClick('batters')}>Batters</button>
-                <button onClick={() => handleTabClick('chutneys')}>Chutneys</button>
-                <button onClick={() => handleTabClick('curd')}>Curd</button>
-                <button onClick={() => handleTabClick('pickles')}>Pickles</button>
-                <button onClick={handleSearchClick}>Search</button>
-            </div>
+            <div className="tabs-right">
+                <button className={activeTab === 'batters' ? 'active' : ''} onClick={() => handleTabClick('batters')}>Batters</button>
+                <button className={activeTab === 'chutneys' ? 'active' : ''} onClick={() => handleTabClick('chutneys')}>Chutneys</button>
+                <button className={activeTab === 'curd' ? 'active' : ''} onClick={() => handleTabClick('curd')}>Curd</button>
+                <button className={activeTab === 'pickles' ? 'active' : ''} onClick={() => handleTabClick('pickles')}>Pickles</button>
+                
+                <button className="search-button" onClick={handleSearchClick}>
+                    <FaSearch />
+                </button>
 
-            {searchVisible && (
-                <div className="search-box">
-                    <input type="text" placeholder="Search..." value={searchTerm} onChange={handleSearchChange} />
-                </div>
-            )}
+                {searchVisible && (
+                    <div className="search-box animated-search">
+                        <input
+                            type="text"
+                            placeholder="Search..."
+                            value={searchTerm}
+                            onChange={handleSearchChange}
+                        />
+                    </div>
+                )}
+            </div>
 
             <div className="tab-content">
                 <h1>{activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}</h1>
-                <div className="content-list">
+                <div className="content-grid">
                     {filteredContent.length > 0 ? (
                         filteredContent.map((item, index) => (
                             <div key={index} className="content-item" onClick={() => handleItemClick(item)}>
@@ -109,7 +126,7 @@ const Tabs = () => {
             {isModalOpen && modalData && (
                 <div className="modal">
                     <div className="modal-content">
-                        <span className="close-button" onClick={handleModalClose}>X</span>
+                        <span className="close-button" onClick={handleModalClose}>Close</span>
                         <img src={modalData.image} alt={modalData.name} className="modal-image" />
                         <h2>{modalData.name}</h2>
                         <p>{modalData.description}</p>
@@ -136,6 +153,7 @@ const Tabs = () => {
                                 <option key={index}>{size}</option>
                             ))}
                         </select>
+                        
                     </div>
                 </div>
             )}
